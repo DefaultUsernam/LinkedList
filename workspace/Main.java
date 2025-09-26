@@ -12,7 +12,27 @@ public class Main{
 
         // Reading data using readLine
         LinkedList list = new LinkedList();
-        String input= reader.readLine();
+
+        list.addAValue("first");
+        list.addAValue("sec");
+        list.addAValue("sthird");
+        list.addAValue("four");
+        list.addAValue("fiv");
+        list.addAValue("stix");
+        System.out.println(list.showValues());
+      System.out.println();
+      list.deleteAValue("first");
+      System.out.println(list.showValues());
+      System.out.println();
+      list.deleteAValue("sthird");
+      System.out.println(list.showValues());
+      System.out.println();
+      list.deleteAValue("sthd");
+      System.out.println(list.showValues());
+      System.out.println();
+      list.clear();
+      System.out.println(list.showValues());
+        /*String input= reader.readLine();
         while(!input.equals("exit"))
         {
           if(input.length()>3 && input.substring(0, 3).equals("add"))
@@ -35,7 +55,7 @@ public class Main{
               System.out.println("I don't know how to "+input);
           }
           input= reader.readLine();
-        }
+        }*/
  
         // Printing the read line
         System.out.println("thanks for playing!");
