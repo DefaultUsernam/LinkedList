@@ -91,7 +91,12 @@ beforeNext = next;
     next = next.getNext();
       lowerNext = next.getValue();
     }
-  
+  if (lowerNext.compareTo(line) == 0){
+          ListNode done = next;
+      beforeNext.setNext(null);
+      nodes--;
+      return done;
+  }
       return null;
     } 
 

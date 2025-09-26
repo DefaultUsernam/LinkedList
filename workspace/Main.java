@@ -24,14 +24,14 @@ public class Main{
       list.deleteAValue("first");
       System.out.println(list.showValues());
       System.out.println();
-      list.deleteAValue("sthird");
+      list.deleteAValue("stix");
       System.out.println(list.showValues());
       System.out.println();
       list.deleteAValue("sthd");
       System.out.println(list.showValues());
       System.out.println();
       list.clear();
-      System.out.println(list.showValues());
+      //System.out.println(list.showValues());
         /*String input= reader.readLine();
         while(!input.equals("exit"))
         {
