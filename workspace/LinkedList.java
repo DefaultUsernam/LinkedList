@@ -72,40 +72,41 @@ public class LinkedList {
     ListNode next = head;
     ListNode beforeNext = head;
     String lowerNext = next.getValue();
-    if (next.getValue().compareTo(line) == 0){
+    if (next.getValue().compareTo(line) == 0) {
       ListNode out = next;
       head = next.getNext();
       nodes--;
       return out;
     }
-    while ((next.getNext()) != null){
+    while ((next.getNext()) != null) {
 
-     if(lowerNext.compareTo(line) == 0) {
-      ListNode done = next;
-      beforeNext.setNext(done.getNext());
-      nodes--;
-      return done;
-     }
-    
-beforeNext = next;
-    next = next.getNext();
+      if (lowerNext.compareTo(line) == 0) {
+        ListNode done = next;
+        beforeNext.setNext(done.getNext());
+        nodes--;
+        return done;
+      }
+
+      beforeNext = next;
+      next = next.getNext();
       lowerNext = next.getValue();
     }
-  if (lowerNext.compareTo(line) == 0){
-          ListNode done = next;
+    if (lowerNext.compareTo(line) == 0) {
+      ListNode done = next;
       beforeNext.setNext(null);
       nodes--;
       return done;
+    }
+    return null;
   }
-      return null;
-    } 
-
-  
 
   // precondition: the list has been initialized
   // postconditions: returns a string containing all values appended together with
   // spaces between.
   public String showValues() {
+    if (head == null) {
+      return "";
+    }
     String returnString = "";
     ListNode nextNode = head;
     while (nextNode.getNext() != null) {
@@ -114,6 +115,7 @@ beforeNext = next;
       nextNode = nextNode.getNext();
     }
     returnString += nextNode.getValue();
+
     return returnString;
   }
 
@@ -123,4 +125,79 @@ beforeNext = next;
     nodes = 0;
     head = null;
   }
+
+  public void reverse() {
+    ListNode curr = head;
+    ListNode before = null;
+    ListNode next = null;
+    while (curr != null) {
+      next = curr.getNext();
+      curr.setNext(before);
+      before = curr;
+      curr = next;
+    }
+    head = before;
+  }
+
+  public void nReverse(int n) {
+    ListNode curr = head;
+    ListNode before = null;
+    ListNode next = null;
+    ListNode temp = new ListNode("", head);
+    ListNode nHead = head;
+    ListNode nEnd = temp;
+
+    while (nHead != null) {
+      ListNode temp2 = nHead;
+      int c = 0;
+      while (c < n && temp2 != null) {
+        temp2 = temp2.getNext();
+        c++;
+      }
+
+      if (c < n) {
+        break;
+      }
+            // the following code exists in case one would like to reverse the remaining section of their linked list that is %n > 0
+      /*if (c < n) {
+        before = null;
+        curr = nHead;
+
+        for (int i = 0; i < c; i++) {
+
+          next = curr.getNext();
+          curr.setNext(before);
+          before = curr;
+          curr = next;
+        }
+        nEnd.setNext(before);
+        nHead.setNext(curr);
+        nEnd = nHead;
+        nHead = curr;
+
+
+      } else {*/
+
+      before = null;
+      curr = nHead;
+
+      for (int i = 0; i < n; i++) {
+      
+        next = curr.getNext();
+        curr.setNext(before);
+        before = curr;
+        curr = next;
+      }
+      nEnd.setNext(before);
+      nHead.setNext(curr);
+      nEnd = nHead;
+      nHead = curr;
+
+      
+
+    }
+
+    head = temp.getNext();
+  }
+
 }

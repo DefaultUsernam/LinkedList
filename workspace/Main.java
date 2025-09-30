@@ -21,16 +21,11 @@ public class Main{
         list.addAValue("stix");
         System.out.println(list.showValues());
       System.out.println();
-      list.deleteAValue("first");
+      list.reverse();
       System.out.println(list.showValues());
-      System.out.println();
-      list.deleteAValue("stix");
+      list.nReverse(4);
       System.out.println(list.showValues());
-      System.out.println();
-      list.deleteAValue("sthd");
-      System.out.println(list.showValues());
-      System.out.println();
-      list.clear();
+
       //System.out.println(list.showValues());
         /*String input= reader.readLine();
         while(!input.equals("exit"))
